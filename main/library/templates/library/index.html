@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <p>Hello</p>
-</body>
-</html>
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'vendor/css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Store
+{% endblock %}
+
+{% block content %}
+<!-- Navigation -->
+{% include 'library/components/nav.html' %}
+<!-- Page Content -->
+{% include 'library/components/index_content.html' %}
+{% endblock %}

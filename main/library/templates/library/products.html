@@ -1,0 +1,23 @@
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'vendor/css/products.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Store - Каталог
+{% endblock %}
+
+{% block content %}
+
+<!-- Navigation -->
+{% include 'library/components/nav.html' %}
+
+<!-- Page Content -->
+{% include 'library/components/products_content.html' %}
+<!-- /.container -->
+
+<!-- Footer -->
+{% include 'library/components/footer.html' %}
+{% endblock %}
