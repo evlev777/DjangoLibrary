@@ -56,10 +56,19 @@ class Book(models.Model):
 
     image = models.ImageField(
         upload_to='book_images',
-        blank=True,
-        null=True,
+        blank=False,
+        null=False,
         verbose_name='картинка'
     )
+
+    date_created = models.DateTimeField(
+        default=now
+    )
+
+    @property
+    def date(self):
+        return self.date_created.strftime('%H:%M %d %m %Y')
+
 
     def __str__(self):
         return f'Книга: {self.title} | Автор: {self.author.name}'
@@ -67,6 +76,8 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'книга'
         verbose_name_plural = 'книги'
+
+
 
 
 
