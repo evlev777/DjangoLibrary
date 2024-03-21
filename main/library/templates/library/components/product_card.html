@@ -2,19 +2,17 @@
                     <div class="card h-100">
                         <a href="#">
                             <img class="card-img-top"
-                                 src="{{ product.image.url }}"
+                                 src="{{ book.image.url }}"
                                  alt="">
                         </a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#">{{ product.name }}</a>
+                                <a href="#">{{ book.title }}</a>
                             </h4>
-                            <h5>{{ product.price }} руб.</h5>
-                            <p class="card-text">{{ product.description }}</p>
                         </div>
                         <div class="card-footer text-center">
-                            <a class="btn btn-outline-success" href="{% url 'products:basket_add' product.id %}">
-                                Отправить в корзину
+                            <a class="btn btn-outline-success" href="#">
+                                Заказать
                             </a>
                         </div>
                     </div>

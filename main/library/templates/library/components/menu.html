@@ -2,8 +2,8 @@
 
   <h1 class="my-4">Library</h1>
   <div class="list-group">
-    {% for category in categories %}
-      <a href="{% url 'products:category' category.id %}" class="list-group-item">{{ category.name }}</a>
+    {% for author in authors %}
+      <a href="{% url 'books:author' author.id %}" class="list-group-item">{{ author.name }}</a>
     {% endfor %}
   </div>
 

@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="{% url 'users:profile' user.id %}">Профиль</a>
+                            <a class="dropdown-item" href="#">Профиль</a>
                         </li>
                         <li><a class="dropdown-item" href="orders/orders.html">Заказы</a></li>
                         {% if user.is_superuser %}
@@ -31,7 +31,7 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{% url 'users:logout' %}">
+                            <a class="dropdown-item" href="#">
                                 Выйти
                             </a>
                         </li>
