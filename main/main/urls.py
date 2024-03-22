@@ -24,7 +24,8 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('', include(('library.urls', 'library'),  namespace='books'))
+    path('', include(('library.urls', 'library'),  namespace='books')),
+    path('users/', include(('users.urls', 'users'), namespace='users'))
 ]
 
 
