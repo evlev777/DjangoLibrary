@@ -1,15 +1,13 @@
 {% if baskets %}
 <div class="col-lg-5 mt-5">
             <h4 class="mt-3 mb-3 d-flex justify-content-between align-items-center mb-3">
-                Полка <span class="badge badge-secondary badge-pill">{{ baskets.total_quantity }}</span>
+                Книги на полке <span class="badge badge-secondary badge-pill">{{ baskets.total_quantity }}</span>
             </h4>
             {% for basket in baskets %}
-                {% include 'users/components/product_in_baskets.html' %}
+                {% if not basket.is_return %}
+                    {% include 'users/components/product_in_baskets.html' %}
+                {% endif %}
             {% endfor %}
-            {% include 'users/components/total_price.html' %}
-            <a class="btn btn-success btn-lg float-right" href="../orders/order-create.html">
-                Оформить заказ
-            </a>
 </div>
 {% else %}
             <h4 class="mt-5 pt-3 text-center">

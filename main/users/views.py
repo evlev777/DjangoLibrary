@@ -7,6 +7,7 @@ from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 from django.contrib.auth import login, authenticate
 from django.urls import reverse_lazy
 from .models import User
+from library.models import Basket
 
 
 class UserLoginView(LoginView):
@@ -69,4 +70,5 @@ class ProfileUserView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('users:profile', args=(self.object.id,))
+
 

@@ -1,6 +1,8 @@
 from django.views.generic import TemplateView, ListView
-
-from .models import Author, Book
+from django.contrib.auth.decorators import login_required
+from .models import Author, Book, Basket
+from django.shortcuts import HttpResponseRedirect
+from django.utils.timezone import now
 
 
 class IndexView(TemplateView):
@@ -24,3 +26,22 @@ class BookListView(ListView):
         context = super(BookListView, self).get_context_data()
         context['authors'] = Author.objects.all()
         return context
+
+
+
+@login_required
+def basket_add(request, book_id):
+    Basket.create_or_update(user=request.user, book_id=book_id)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@login_required
+def basket_remove(request, basket_id):
+    basket = Basket.objects.get(id=basket_id)
+    book = Book.objects.get(id=basket.book.id)
+    book.quantity += basket.quantity
+    book.is_access = True
+    basket.is_return = True
+    basket.created_timestamp = now()
+    book.save()
+    basket.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

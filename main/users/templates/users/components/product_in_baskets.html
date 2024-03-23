@@ -1,7 +1,7 @@
 <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">{{ basket.product.name }}</h5>
-                    <p class="card-text">{{ basket.product.description }}</p>
+                    <h5 class="card-title">{{ basket.book.title }}</h5>
+                    <p class="card-text">{{ basket.book.author.name }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-light">
@@ -10,10 +10,9 @@
                                 <input name="basketID" type="number" class="form-control"
                                        value="{{ basket.quantity }}" min="0">
                             </div>
-                            <div class="col-lg-4">{{ basket.sum }}</div>
                             <div class="col-lg-4">
-                                <a href="{% url 'products:basket_remove' basket.id %}">
-                                    <i class="fas fa-trash"></i>
+                                <a class="btn btn-success btn-md float-right" href="{% url 'books:basket_remove' basket.id %}">
+                                    Сдать книгу
                                 </a>
                             </div>
                         </div>

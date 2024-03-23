@@ -7,7 +7,9 @@
             {% include 'library/components/slider.html' %}
                 <div class="row">
                     {% for book in object_list %}
-                        {% include 'library/components/product_card.html' %}
+                        {% if book.is_access %}
+                            {% include 'library/components/product_card.html' %}
+                        {% endif %}
                     {% endfor %}
                 </div>
             {% include 'library/components/paginator.html' %}
